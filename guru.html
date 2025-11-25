@@ -63,7 +63,9 @@ window.onerror = function(errorMsg, url, lineNumber) {
 	</head>
 
 	<body>
-
+<audio id="backsound" loop>
+        <source src="https://pomf2.lain.la/f/1bqubkwh.mp3" type="audio/mpeg">
+    </audio>
 		<canvas id="canvas"></canvas>
 
 		<div id="typewriter"></div>
@@ -672,7 +674,20 @@ setInterval(function() {
 })();
 
 		</script>
+		
+<script>
 
+        function playMusic() {
+            var audio = document.getElementById("backsound");
+            audio.volume = 0.5; // Mengatur volume (0.1 sampai 1.0)
+            audio.play().catch(function(error) {
+                console.log("Menunggu interaksi user untuk memutar musik...");
+            });
+        }
+
+        document.body.addEventListener('click', playMusic, { once: true });
+        document.body.addEventListener('touchstart', playMusic, { once: true });
+    </script>
 	</body>
 
 </html>
